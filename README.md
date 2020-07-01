@@ -1,2 +1,2 @@
 # Training
-Github lưu trữ tất cả những gì tôi đang bắt đầu cho việc học lập trình
+Chỗ này lưu bài tập nộp cho sư phụ
