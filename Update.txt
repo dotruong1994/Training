@@ -1,0 +1,36 @@
+#UPDATE
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="my_test_steve"
+)
+print('Chọn cột dữ liệu cần thay đổi: ')
+print('1. Name')
+print('2. Skill')
+print('3. Phone')
+b=int(input())
+if b==1:
+    c='Name'
+elif b==2:
+    c='Skill'
+elif b==3:
+    c='Phone'
+
+print("Vui lòng nhập '"+c+"' cần đổi:")
+a=str(input())
+print("Đổi '"+a+"' thành:")
+d=str(input())
+mycursor = mydb.cursor()
+
+sql = "UPDATE learn_python SET "+c+" = %s WHERE "+c+" = %s"
+val = (d, a)
+
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) affected")

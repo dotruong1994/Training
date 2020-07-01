@@ -1,0 +1,24 @@
+#INSERT
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="my_test_steve"
+)
+
+print('Vui lòng nhập Name:')
+a=input()
+print('Vui lòng nhập Skill:')
+b=input()
+print('Vui lòng nhập Phone:')
+c=input()
+mycursor = mydb.cursor()
+sql = "INSERT INTO learn_python (Name, Skill, Phone) VALUES ( %s, %s, %s)"
+val = (a,b,c)
+mycursor.execute(sql, val)
+mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")

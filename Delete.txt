@@ -1,0 +1,22 @@
+#DELETE 
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="my_test_steve"
+)
+print('Vui lòng nhập Name cần xóa:')
+a=input()
+mycursor = mydb.cursor()
+
+sql = "DELETE FROM learn_python WHERE Name = %s"
+name = (a,)
+
+mycursor.execute(sql,name)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) deleted")
